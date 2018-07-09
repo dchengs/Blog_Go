@@ -9,7 +9,7 @@ import (
 
 //list of pages handler
 func Index(w http.ResponseWriter, r *http.Request) {
-	index, err := template.ParseFiles("./html/index.html")
+	index, err := template.ParseFiles("index.html")
 	if err != nil{ 
 		Utility.ErrLogger(err)
 	}
@@ -17,14 +17,14 @@ func Index(w http.ResponseWriter, r *http.Request) {
 }
 
 func CurrentProject(w http.ResponseWriter, r *http.Request) {
-	currentProject, err := template.ParseFiles("./html/currentProject.html")
+	currentProject, err := template.ParseFiles("currentProject.html")
 	if err != nil{
 		Utility.ErrLogger(err)
 	}
 	currentProject.Execute(w, nil)
 }
 func AboutMe(w http.ResponseWriter, r *http.Request) {
-	aboutMe, err := template.ParseFiles("./html/aboutMe.html")
+	aboutMe, err := template.ParseFiles("aboutMe.html")
 	if err != nil{
 		Utility.ErrLogger(err)
 	}
