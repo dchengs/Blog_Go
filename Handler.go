@@ -10,31 +10,38 @@ import (
 
 //list of pages handler
 func Index(w http.ResponseWriter, r *http.Request) {
-	index, err := template.ParseFiles("html/index.html")
+	template, err := template.ParseFiles("html/index.html")
 	if err != nil {
 		Utility.ErrLogger(err)
 	}
-	fmt.Println(index.Execute(w, nil))
+	else{
+		template.Execute(w, nil)
+	}
 }
 
-func CurrentProject(w http.ResponseWriter, r *http.Request) {
-	currentProject, err := template.ParseFiles("html/currentProject.html")
+func Project(w http.ResponseWriter, r *http.Request) {
+	Project, err := template.ParseFiles("html/currentProject.html")
 	if err != nil {
 		Utility.ErrLogger(err)
 	}
-	currentProject.Execute(w, nil)
+	else{
+		template.Execute(w, nil)
+	}
 }
 func AboutMe(w http.ResponseWriter, r *http.Request) {
-	aboutMe, err := template.ParseFiles("html/aboutMe.html")
+	template, err := template.ParseFiles("html/aboutMe.html")
 	if err != nil {
 		Utility.ErrLogger(err)
 	}
-	aboutMe.Execute(w, nil)
+	else{
+		template.Execute(w, nil)
+	}
 }
 
 func Login(w http.ResponseWriter, r *http.Request){
 	if(r.Method() == "GET"){
-		loginPage, err = := template.ParseFiles("html/login.html")
+		template, err = := template.ParseFiles("html/login.html")
+		template.execute(w, nil)
 		if err != nil{
 			Utility.ErrLogger(err)
 		}
@@ -51,11 +58,23 @@ func Login(w http.ResponseWriter, r *http.Request){
 
 	}
 }
+func Resume(w http.ResponseWriter, r *http.Request){
+	template, err := template.ParseFiles("html/resume.html")
+	if err != nil{
+		Utility.ErrLogger(err)
+	}
+	else{
+		template.Execute(w, nil)
+	}
+
+}
 
 func main() {
 	http.HandleFunc("/", Index)
-	http.HandleFunc("/currentProject/", CurrentProject)
-	http.HandleFunc("/aboutMe/", AboutMe)
+	http.HandleFunc("/Project/", Project)
+	http.HandleFunc("/AboutMe/", AboutMe)
+	http.HandleFunc("/login", Login)
+	http.HandleFunc("Resume", Resume)
 	http.ListenAndServe(":5000", nil)
 	fmt.Println("trying")
 }
