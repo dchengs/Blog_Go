@@ -1,0 +1,14 @@
+2018/07/25 21:15:39 open html/index.html: no such file or directory
+2018/07/25 21:15:40 open html/index.html: no such file or directory
+2018/07/25 21:15:44 open html/index.html: no such file or directory
+2018/07/25 21:15:45 open html/index.html: no such file or directory
+2018/07/25 21:17:56 open Blog_go/html/index.html: no such file or directory
+2018/07/25 21:17:56 open Blog_go/html/index.html: no such file or directory
+2018/07/25 21:25:20 open ../html/index.html: no such file or directory
+2018/07/25 21:25:20 open ../html/index.html: no such file or directory
+2018/07/25 21:25:21 open ../html/index.html: no such file or directory
+2018/07/25 21:25:22 open ../html/index.html: no such file or directory
+2018/07/25 21:25:24 open ../html/index.html: no such file or directory
+2018/07/25 21:25:24 open ../html/index.html: no such file or directory
+2018/07/25 21:25:26 open ../html/index.html: no such file or directory
+2018/07/25 21:25:26 open ../html/index.html: no such file or directory
