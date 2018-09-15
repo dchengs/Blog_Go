@@ -2,10 +2,20 @@ package main
 
 import (
 	"Blog_go/utilities/logger"
-	"fmt"
 	"html/template"
+	"fmt"
 	"net/http"
 )
+
+//this is the main file for all the url routing
+//add to this page if new url is set
+
+type project struct{
+	name string
+	status string
+	url string
+	description string
+}
 
 //list of pages handler
 func Index(w http.ResponseWriter, r *http.Request) {
@@ -23,6 +33,9 @@ func Index(w http.ResponseWriter, r *http.Request) {
 }
 
 func Project(w http.ResponseWriter, r *http.Request) {
+	//need to query database and retrieve latest projects and pass it to template
+	//
+	//
 	template, err := template.ParseFiles("../htmls/currentProject.html")
 	if err != nil {
 		logger.ErrLogger(err)
@@ -59,17 +72,9 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		}
 		template.Execute(w, nil)
 	} else {
-		//simple debug testing
-		debugUsername := "chengs"
-		debugPassword := "123123123"
 		r.ParseForm()
 		username := r.PostFormValue("username")
 		password := r.PostFormValue("password")
-		if debugUsername == username && debugPassword == password {
-			fmt.Println("Correct password")
-		} else {
-			fmt.Println("Incorrect password")
-		}
 		/*
 			//encrypt password input
 			sha_256 := sha256.New()
@@ -78,6 +83,8 @@ func Login(w http.ResponseWriter, r *http.Request) {
 			encryptedPW := hex.EncodeToString(sha_256.Sum(nil))
 			//check with serve
 		*/
+		fmt.Println(username)
+		fmt.Println(password)
 
 	}
 }
@@ -93,7 +100,7 @@ func NotFound(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.HandleFunc("/", Index)
 	http.HandleFunc("/project/", Project)
-	http.HandleFunc("/aboutMe/", AboutMe)
+	http.HandleFunc("/about/", About)
 	http.HandleFunc("/login/", Login)
 	http.HandleFunc("/resume/", Resume)
 	http.ListenAndServe(":5000", nil)
